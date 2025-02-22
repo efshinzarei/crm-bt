@@ -19,18 +19,18 @@ export default async function handler(req, res) {
       return res
         .status(400)
         .json({ status: "failed", message: "Invalid data" });
-  }
 
-  try {
-    const customer = await Customer.create(data);
-    res
-      .status(201)
-      .json({ status: "success", message: "Data created", data: customer });
-  } catch (error) {
-    console.log(error);
-    res.status(500).json({
-      status: "failed",
-      message: "Error in storing data in DB",
-    });
+    try {
+      const customer = await Customer.create(data);
+      res
+        .status(201)
+        .json({ status: "success", message: "Data created", data: customer });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({
+        status: "failed",
+        message: "Error in storing data in DB",
+      });
+    }
   }
 }
