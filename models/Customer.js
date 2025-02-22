@@ -17,7 +17,7 @@ const customerSchema = Schema({
     minLength: 1,
   },
   phone: String,
-  Address: String,
+  address: String,
   postalCode: Number,
   date: Date,
   products: {
